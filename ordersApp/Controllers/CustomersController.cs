@@ -39,8 +39,8 @@ namespace ordersApp.Controllers
                 };
                 Orders.ForEach(o => context.Order.Add(o));
                 context.SaveChanges();
-                //}
             }
+        }
 
         [Authorize]
         [HttpGet]

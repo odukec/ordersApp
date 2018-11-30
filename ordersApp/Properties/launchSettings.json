@@ -20,7 +20,7 @@
     "ordersApp": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/values",
+      "launchUrl": "Account/Register",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

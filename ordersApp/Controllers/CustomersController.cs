@@ -17,30 +17,30 @@ namespace ordersApp.Controllers
         public CustomersController(DAL.AppContext context)
         {
             _context = context;
-            //if (_context.Customer.Count() == 0)
-            //{
-            //    var Customers = new List<Customer>
-            //    {
-            //        new Customer { NameCustomer = "Pedro", SurnameCustomer = "Perez", PhoneNumber = "+57 342342323"},
-            //        new Customer { NameCustomer = "Andres", SurnameCustomer = "Gomez", PhoneNumber = "+57 3498345-3"},
-            //        new Customer { NameCustomer = "Pepe", SurnameCustomer = "Soto", PhoneNumber = "+57 349897544"},
-            //        new Customer { NameCustomer = "Rosa", SurnameCustomer = "Gomez", PhoneNumber = "+57 344356783"}
-            //    };
+            if (_context.Customer.Count() == 0)
+            {
+                var Customers = new List<Customer>
+                {
+                    new Customer { NameCustomer = "Pedro", SurnameCustomer = "Perez", PhoneNumber = "+57 342342323"},
+                    new Customer { NameCustomer = "Andres", SurnameCustomer = "Gomez", PhoneNumber = "+57 3498345-3"},
+                    new Customer { NameCustomer = "Pepe", SurnameCustomer = "Soto", PhoneNumber = "+57 349897544"},
+                    new Customer { NameCustomer = "Rosa", SurnameCustomer = "Gomez", PhoneNumber = "+57 344356783"}
+                };
 
-            //    Customers.ForEach(c => context.Customer.Add(c));
-            //    context.SaveChanges();
+                Customers.ForEach(c => context.Customer.Add(c));
+                context.SaveChanges();
 
-            //    var Orders = new List<Order>
-            //    {
-            //        new Order { IdCustomer = Customers[0].IdCustomer, DateOrder = DateTime.Now.AddDays(-4), Description="Impresion 1000 Tarjetas" },
-            //        new Order { IdCustomer = Customers[2].IdCustomer, DateOrder = DateTime.Now.AddDays(1), Description="Impresion 2000 Tarjetas" },
-            //        new Order { IdCustomer = Customers[1].IdCustomer, DateOrder = DateTime.Now.AddDays(-2), Description="Impresion 3000 Tarjetas" },
-            //        new Order { IdCustomer = Customers[0].IdCustomer, DateOrder = DateTime.Now.AddDays(-8), Description="Impresion 4000 Tarjetas" }
-            //    };
-            //    Orders.ForEach(o => context.Order.Add(o));
-            //    context.SaveChanges();
-            //}
-        }
+                var Orders = new List<Order>
+                {
+                    new Order { IdCustomer = Customers[0].IdCustomer, DateOrder = DateTime.Now.AddDays(-4), Description="Impresion 1000 Tarjetas" },
+                    new Order { IdCustomer = Customers[2].IdCustomer, DateOrder = DateTime.Now.AddDays(1), Description="Impresion 2000 Tarjetas" },
+                    new Order { IdCustomer = Customers[1].IdCustomer, DateOrder = DateTime.Now.AddDays(-2), Description="Impresion 3000 Tarjetas" },
+                    new Order { IdCustomer = Customers[0].IdCustomer, DateOrder = DateTime.Now.AddDays(-8), Description="Impresion 4000 Tarjetas" }
+                };
+                Orders.ForEach(o => context.Order.Add(o));
+                context.SaveChanges();
+                //}
+            }
 
         [Authorize]
         [HttpGet]
